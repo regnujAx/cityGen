@@ -11,7 +11,7 @@ bl_info = {
     "name": "CityGen",
     "author": "Alexander Junger",
     "version": (1, 0),
-    "blender": (3, 6, 11),
+    "blender": (3, 6, 12),
     "location": "View3D > Toolbar > CityGen",
     "category": "Object",
     "description": "Generate a procedural city."
@@ -19,7 +19,7 @@ bl_info = {
 
 
 # ------------------------------------------------------------------------
-#    General and Blender Dependent Imports
+#    Imports
 # ------------------------------------------------------------------------
 
 
@@ -27,40 +27,17 @@ import bpy
 import os
 import sys
 
-from importlib import reload
+from .operators import CG_CreateAll, CG_DeleteAll
 
 
 # Make sure imports work even when main folder is named differently
 if __name__ != "cityGen":
     sys.modules["cityGen"] = sys.modules[__name__]
 
-# ------------------------------------------------------------------------
-#    Project Dependent Imports
-# ------------------------------------------------------------------------
-
-
 dir = os.path.dirname(os.path.abspath(__file__))
 
 if dir not in sys.path:
     sys.path.append(dir)
-
-
-# from . import operators
-from .roadGen import *
-from .roadGridGen import *
-
-# reload(collection_management)
-# reload(curve_management)
-# reload(mesh_management)
-# reload(operators)
-# reload(crossroad_generator)
-# reload(data_generator)
-# reload(geometry_generator)
-# reload(kerb_generator)
-# reload(road_generator)
-# reload(road_net_generator)
-
-from .operators import CG_CreateAll, CG_DeleteAll
 
 
 # ------------------------------------------------------------------------
@@ -73,9 +50,8 @@ class CG_CityGenPanel(bpy.types.Panel):
     bl_idname = "cityGen_panel"
     bl_space_type = "VIEW_3D"
     bl_region_type = "UI"
-    bl_category = "cityGen"
+    bl_category = "CityGen"
     bl_context = "objectmode"
-    bl_order = 1
 
     def draw(self, context):
         layout = self.layout
@@ -84,7 +60,7 @@ class CG_CityGenPanel(bpy.types.Panel):
 
 
 # ------------------------------------------------------------------------
-#    Registration of Properties, Operators and the Panel
+#    Registration of Operators and Panel
 # ------------------------------------------------------------------------
 
 
