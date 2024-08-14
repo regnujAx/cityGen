@@ -27,8 +27,6 @@ import bpy
 import os
 import sys
 
-from .operators import CG_CreateAll, CG_DeleteAll
-
 
 # Make sure imports work even when main folder is named differently
 if __name__ != "cityGen":
@@ -38,6 +36,9 @@ dir = os.path.dirname(os.path.abspath(__file__))
 
 if dir not in sys.path:
     sys.path.append(dir)
+
+
+from .operators import CG_CreateAll, CG_DeleteAll
 
 
 # ------------------------------------------------------------------------

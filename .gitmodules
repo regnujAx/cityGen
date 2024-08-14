@@ -1,6 +1,6 @@
-[submodule "roadGridGen"]
-	path = roadGridGen
-	url = https://github.com/regnujAx/roadGridGen
+[submodule "roadNetGen"]
+	path = roadNetGen
+	url = https://github.com/regnujAx/roadNetGen
 [submodule "roadGen"]
 	path = roadGen
 	url = https://github.com/regnujAx/roadGen

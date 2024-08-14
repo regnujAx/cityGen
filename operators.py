@@ -3,7 +3,7 @@ import bpy
 from .roadGen.generators.road_net_generator import RG_RoadNetGenerator
 from .roadGen.utils.collection_management import delete_collections_with_objects, hide_collection
 from .roadGen.utils.curve_management import visible_curves
-from .roadGridGen.roadGridGen import generate
+from .roadNetGen.roadNetGen import generate
 
 
 # ------------------------------------------------------------------------
@@ -12,7 +12,7 @@ from .roadGridGen.roadGridGen import generate
 
 
 class CG_CreateAll(bpy.types.Operator):
-    """Create a road grid and its roads, kerbs, crossroads and sidewalks"""
+    """Create a road net and its roads, kerbs, crossroads and sidewalks"""
     bl_label = "Create All"
     bl_idname = "cg.create_all"
     bl_options = {"REGISTER", "UNDO"}
@@ -30,7 +30,7 @@ class CG_CreateAll(bpy.types.Operator):
 
 
 class CG_DeleteAll(bpy.types.Operator):
-    """Delete the road grid, all created meshes and the collections themselves"""
+    """Delete the road net, all created meshes and the collections themselves"""
     bl_label = "Delete All"
     bl_idname = "cg.delete_all"
     bl_options = {"REGISTER", "UNDO"}
