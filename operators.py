@@ -3,7 +3,7 @@ import bpy
 from .roadGen.generators.road_net_generator import RG_RoadNetGenerator
 from .roadGen.utils.collection_management import delete_collections_with_objects, hide_collection
 from .roadGen.utils.curve_management import visible_curves
-from .roadNetGen.roadNetGen import generate
+from .roadNetGen.roadNetGen import RNG_GraphGenerator
 
 
 # ------------------------------------------------------------------------
@@ -18,9 +18,15 @@ class CG_CreateAll(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
 
     def execute(self, context):
-        generate()
+        city_props = context.scene.city_props
+        graph_seed = city_props.graph_seed
+        crossroad_offset = city_props.crossroad_offset
+
+        graph_generator = RNG_GraphGenerator(crossroad_offset, graph_seed)
+        graph_generator.generate()
 
         curves = visible_curves()
+
         road_net_generator = RG_RoadNetGenerator(curves)
         road_net_generator.generate()
 

@@ -39,6 +39,7 @@ if dir not in sys.path:
 
 
 from .operators import CG_CreateAll, CG_DeleteAll
+from .properties import CG_CityProperties
 
 
 # ------------------------------------------------------------------------
@@ -55,7 +56,11 @@ class CG_CityGenPanel(bpy.types.Panel):
     bl_context = "objectmode"
 
     def draw(self, context):
+        city_props = context.scene.city_props
         layout = self.layout
+
+        layout.prop(city_props, "graph_seed")
+        layout.prop(city_props, "crossroad_offset")
         layout.operator("cg.create_all")
         layout.operator("cg.delete_all")
 
@@ -67,6 +72,7 @@ class CG_CityGenPanel(bpy.types.Panel):
 
 classes = (
     CG_CityGenPanel,
+    CG_CityProperties,
     CG_CreateAll,
     CG_DeleteAll
 )
@@ -76,7 +82,11 @@ def register():
     for cls in classes:
         bpy.utils.register_class(cls)
 
+    bpy.types.Scene.city_props = bpy.props.PointerProperty(type=CG_CityProperties)
+
 
 def unregister():
+    del bpy.types.Scene.city_props
+
     for cls in reversed(classes):
         bpy.utils.unregister_class(cls)
