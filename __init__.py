@@ -59,6 +59,8 @@ class CG_CityGenPanel(bpy.types.Panel):
         city_props = context.scene.city_props
         layout = self.layout
 
+        layout.prop(city_props, "graph_width")
+        layout.prop(city_props, "graph_height")
         layout.prop(city_props, "graph_seed")
         layout.prop(city_props, "crossroad_offset")
         layout.operator("cg.create_all")

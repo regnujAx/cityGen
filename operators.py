@@ -18,12 +18,14 @@ class CG_CreateAll(bpy.types.Operator):
 
     def execute(self, context):
         city_props = context.scene.city_props
+        graph_width = city_props.graph_width
+        graph_height = city_props.graph_height
         graph_seed = city_props.graph_seed
-        crossroad_offset = city_props.crossroad_offset
 
-        graph_generator = RNG_GraphGenerator(graph_seed)
+        graph_generator = RNG_GraphGenerator(graph_width, graph_height, graph_seed)
         graph_generator.generate()
 
+        crossroad_offset = city_props.crossroad_offset
         graph = graph_generator.graph
 
         road_net_generator = RG_RoadNetGenerator(crossroad_offset, graph)
