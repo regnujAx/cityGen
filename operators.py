@@ -1,8 +1,7 @@
 import bpy
 
 from .roadGen.generators.road_net_generator import RG_RoadNetGenerator
-from .roadGen.utils.collection_management import delete_collections_with_objects, hide_collection
-from .roadGen.utils.curve_management import visible_curves
+from .roadGen.utils.collection_management import delete_collections_with_objects, hide_collections
 from .roadNetGen.roadNetGen import RNG_GraphGenerator
 
 
@@ -22,15 +21,17 @@ class CG_CreateAll(bpy.types.Operator):
         graph_seed = city_props.graph_seed
         crossroad_offset = city_props.crossroad_offset
 
-        graph_generator = RNG_GraphGenerator(crossroad_offset, graph_seed)
+        graph_generator = RNG_GraphGenerator(graph_seed)
         graph_generator.generate()
 
-        curves = visible_curves()
+        graph = graph_generator.graph
 
-        road_net_generator = RG_RoadNetGenerator(curves)
+        road_net_generator = RG_RoadNetGenerator(crossroad_offset, graph)
         road_net_generator.generate()
 
-        hide_collection("Markers")
+        collection_names = ["Crossing Points", "Crossroad Curves", "Line Meshes"]
+
+        hide_collections(collection_names)
 
         return {"FINISHED"}
 
@@ -42,9 +43,10 @@ class CG_DeleteAll(bpy.types.Operator):
     bl_options = {"REGISTER", "UNDO"}
 
     def execute(self, context):
-        collections = ["Crossroad Curves", "Crossroads", "Edges", "Kerbs", "Line Meshes", "Markers", "Road Lanes", "Sidewalks"]
+        collection_names = ["Crossing Points", "Crossroad Curves", "Crossroads", "Curves",
+                            "Kerbs", "Line Meshes", "Road Lanes", "Sidewalks"]
 
-        delete_collections_with_objects(collections)
+        delete_collections_with_objects(collection_names)
 
         return {"FINISHED"}
 
