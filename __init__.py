@@ -37,6 +37,7 @@ dir = os.path.dirname(os.path.abspath(__file__))
 if dir not in sys.path:
     sys.path.append(dir)
 
+from . import roadGen, roadNetGen
 
 from .operators import CG_CreateAll, CG_DeleteAll
 from .properties import CG_CityProperties
