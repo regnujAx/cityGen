@@ -63,7 +63,6 @@ class CG_CityGenPanel(bpy.types.Panel):
         layout.prop(city_props, "graph_width")
         layout.prop(city_props, "graph_height")
         layout.prop(city_props, "graph_seed")
-        layout.prop(city_props, "crossroad_offset")
         layout.operator("cg.create_all")
         layout.operator("cg.delete_all")
 

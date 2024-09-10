@@ -30,11 +30,3 @@ class CG_CityProperties(bpy.types.PropertyGroup):
     soft_max=100000000,
     default=12345678
   )
-
-  crossroad_offset : bpy.props.FloatProperty(
-    name="Crossroad Offset",
-    description="Offset for crossroads in meters (between 2.0 and 1000.0)",
-    soft_min=2.0,
-    soft_max=1000.0,
-    default=8.0
-  )

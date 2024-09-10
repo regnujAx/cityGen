@@ -25,10 +25,9 @@ class CG_CreateAll(bpy.types.Operator):
         graph_generator = RNG_GraphGenerator(graph_width, graph_height, graph_seed)
         graph_generator.generate()
 
-        crossroad_offset = city_props.crossroad_offset
         graph = graph_generator.graph
 
-        road_net_generator = RG_RoadNetGenerator(crossroad_offset, graph)
+        road_net_generator = RG_RoadNetGenerator(graph)
         road_net_generator.generate()
 
         collection_names = ["Crossing Points", "Crossroad Curves", "Line Meshes"]
