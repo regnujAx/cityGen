@@ -3,7 +3,7 @@
 ## What is it?
 CityGen was developed as a project for a master thesis to create a [Blender](https://www.blender.org/) add-on that generates a procedural city.
 
-At the moment it generates a road net graph (submodule [roadNetGen](https://github.com/regnujAx/roadNetGen) forked from [ProceduralCityGenerator](https://github.com/panicmod-e/ProceduralCityGenerator)) and based on this a road net with Blender meshes (submodule [roadGen](https://github.com/regnujAx/roadGen)).
+At the moment it generates a road net graph (submodule [roadGraphGen](https://github.com/regnujAx/roadGraphGen) forked from [ProceduralCityGenerator](https://github.com/panicmod-e/ProceduralCityGenerator)) and based on this a road net with Blender meshes (submodule [roadGen](https://github.com/regnujAx/roadGen)).
 
 The road net graph is generated procedurally, but it is possible to use a seed to generate the same graph each time.
 

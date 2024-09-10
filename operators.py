@@ -3,7 +3,7 @@ import bpy
 from cityGen import config
 from cityGen.roadGen.generators.road_net_generator import RG_RoadNetGenerator
 from cityGen.roadGen.utils.collection_management import delete_collections_with_objects, switch_collections_visibility
-from cityGen.roadNetGen.roadNetGen import RNG_GraphGenerator
+from cityGen.roadGraphGen.roadGraphGen import RNG_GraphGenerator
 
 
 # ------------------------------------------------------------------------

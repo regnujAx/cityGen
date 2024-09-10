@@ -1,12 +1,3 @@
-# To use this add-on you have to zip the directory containing this file (cityGen)
-# and install the zip in the .blend file.
-# To install the add-on open your .blend file and go to Edit -> Preferences -> Add-ons -> Install.
-# Navigate to the directory where the zip-file is located that contains the cityGen directory and select it.
-# The add-on should now listed and you have to enable it by clicking the checkbox.
-# If you don't see it, select User in the dropdown.
-# When enabled, you can use it in the 3D Viewport Object Mode.
-
-
 bl_info = {
     "name": "CityGen",
     "author": "Alexander Junger",
@@ -36,8 +27,6 @@ dir = os.path.dirname(os.path.abspath(__file__))
 
 if dir not in sys.path:
     sys.path.append(dir)
-
-from cityGen import roadGen, roadNetGen
 
 from cityGen.operators import CG_CreateAll, CG_DeleteAll
 from cityGen.properties import CG_CityProperties
