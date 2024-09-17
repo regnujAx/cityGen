@@ -31,4 +31,10 @@ git submodule update
 - The add-on should now listed.
 - If you don't see it, select User in the dropdown and/or use the search function.
 - If you see it and it is not enable, enable it by clicking on the checkbox.
-- When enabled, you can use it in the 3D Viewport Object Mode.
+
+5. Append the templates (in roadGen/mesh_templates.blend).
+- Open your .blend file and go to File &rarr; Append.
+- Navigate to the roadGen/mesh_templates.blend and select it.
+- Go to Collection and append the Templates collection.
+
+6. Use the CityGen add-on in the right side panel in the 3D Viewport in Object Mode (show/hide side panel with key N).
