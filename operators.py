@@ -46,7 +46,7 @@ class CG_DeleteAll(bpy.types.Operator):
 
     def execute(self, context):
         collection_names = ["Crossing Points", "Crossroad Curves", "Crossroads", "Curves", "Kerbs",
-                            "Line Meshes", "Road Lanes", "Sidewalks", "Street Lamps", "Traffic Lights"]
+                            "Line Meshes", "Road Lanes", "Sidewalks", "Street Lamps", "Traffic Lights", "Traffic Signs"]
 
         delete_collections_with_objects(collection_names)
 
