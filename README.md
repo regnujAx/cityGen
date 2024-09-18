@@ -18,23 +18,33 @@ To use this project as a Blender add-on, follow these steps:
 git clone https://github.com/regnujAx/cityGen.git
 ```
 
-2. Update the submodules:
+2. Go into the cloned repository:
+```shell
+cd cityGen
+```
+
+3. Initialize the submodules:
+```shell
+git submodule init
+```
+
+4. Update the submodules:
 ```shell
 git submodule update
 ```
 
-3. Zip the whole cityGen directory.
+5. Zip the whole cityGen directory.
 
-4. Install the zip in a Blender file.
+6. Install the zip in a Blender file.
 - Open your .blend file and go to Edit &rarr; Preferences &rarr; Add-ons &rarr; Install.
 - Navigate to the directory where the zip-file is located that contains the cityGen directory and select it.
 - The add-on should now listed.
 - If you don't see it, select User in the dropdown and/or use the search function.
 - If you see it and it is not enable, enable it by clicking on the checkbox.
 
-5. Append the templates (in roadGen/mesh_templates.blend).
+7. Append the templates (in roadGen/mesh_templates.blend).
 - Open your .blend file and go to File &rarr; Append.
 - Navigate to the roadGen/mesh_templates.blend and select it.
 - Go to Collection and append the Templates collection.
 
-6. Use the CityGen add-on in the right side panel in the 3D Viewport in Object Mode (show/hide side panel with key N).
+8. Use the CityGen add-on in the right side panel in the 3D Viewport in Object Mode (show/hide side panel with key N).
